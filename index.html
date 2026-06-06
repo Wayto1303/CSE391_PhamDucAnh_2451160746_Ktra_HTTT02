@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý Phiếu Mượn Sách</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h2>QUẢN LÝ PHIẾU MƯỢN SÁCH</h2>
+
+        <div class="statistics">
+            <div class="stat-box">Tổng số phiếu: <span id="total-borrows">0</span></div>
+            <div class="stat-box">Số phiếu đang mượn: <span id="borrowing-count">0</span></div>
+            <div class="stat-box">Số phiếu đã trả: <span id="returned-count">0</span></div>
+        </div>
+
+        <button id="open-modal-btn" class="btn btn-add">Thêm phiếu mượn</button>
+
+        <table id="borrow-table">
+            <thead>
+                <tr>
+                    <th>Mã phiếu</th>
+                    <th>Họ tên</th>
+                    <th>Mã sách</th>
+                    <th>Thể loại</th>
+                    <th>Ngày mượn</th>
+                    <th>Hạn trả</th>
+                    <th>SĐT</th>
+                    <th>Email</th>
+                    <th>Trạng thái</th>
+                    <th>Thao tác</th>
+                </tr>
+            </thead>
+            <tbody id="borrow-list">
+                </tbody>
+        </table>
+    </div>
+
+    <div id="borrow-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" id="close-modal-btn">&times;</span>
+            <h3 id="modal-title">Thêm Phiếu Mượn Sách</h3>
+            <form id="borrow-form">
+                <input type="hidden" id="edit-index">
+
+                <div class="form-group">
+                    <label>Mã phiếu mượn (Borrow ID):</label>
+                    <input type="text" id="borrow-id" required>
+                </div>
+                <div class="form-group">
+                    <label>Họ tên người mượn:</label>
+                    <input type="text" id="borrower-name" required>
+                </div>
+                <div class="form-group">
+                    <label>Mã sách:</label>
+                    <input type="text" id="book-id" required>
+                </div>
+                <div class="form-group">
+                    <label>Thể loại sách:</label>
+                    <input type="text" id="book-category" required>
+                </div>
+                <div class="form-group">
+                    <label>Ngày mượn:</label>
+                    <input type="date" id="borrow-date" required>
+                </div>
+                <div class="form-group">
+                    <label>Hạn trả:</label>
+                    <input type="date" id="return-date" required>
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại liên hệ:</label>
+                    <input type="tel" id="borrower-phone" required>
+                </div>
+                <div class="form-group">
+                    <label>Email liên hệ:</label>
+                    <input type="email" id="borrower-email" required>
+                </div>
+                <div class="form-group">
+                    <label>Trạng thái phiếu:</label>
+                    <select id="borrow-status">
+                        <option value="Đang mượn">Đang mượn</option>
+                        <option value="Đã trả">Đã trả</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-submit">Lưu lại</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
